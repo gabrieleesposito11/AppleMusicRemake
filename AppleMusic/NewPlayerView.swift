@@ -12,6 +12,7 @@ struct NewPlayerView: View {
     
     var song : Songs
     //@Environment (SongsViewModel.self) var songs
+    //git
     
     @State private var player : AVAudioPlayer?
     @State private var isPlaying = false
