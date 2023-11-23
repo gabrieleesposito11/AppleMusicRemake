@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     
     @State var tabSelection = 4
+    
     var songsViewModel = SongsViewModel()
     
     var body: some View {
@@ -33,7 +34,6 @@ struct TabBarView: View {
                 }
                 .tag(3)
             LibraryView()
-                .environment(songsViewModel)
                 .tabItem {
                     Image(systemName: "square.stack.fill")
                     Text("Library")
@@ -45,7 +45,9 @@ struct TabBarView: View {
                     Text("Search")
                 }
                 .tag(5)
-        }.accentColor(.red)
+        }
+        .accentColor(.red)
+        .environment(songsViewModel)
     }
 }
 

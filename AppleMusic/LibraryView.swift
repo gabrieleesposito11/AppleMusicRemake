@@ -10,14 +10,12 @@ import SwiftUI
 struct LibraryView: View {
     
     var category = CategoriesViewModel()
-    var song1 = SongsViewModel()
     @Environment (SongsViewModel.self) var songsViewModel
     @State var showModal = false
     @Environment(\.dismiss) var dismiss
-    /*var songIndex : Int {
-        songsViewModel.song.firstIndex(where: {$0.id == song.id})
-    }*/
-    //@Binding var tabSelection() : Int
+    private let adaptiveColumn = [
+        GridItem(.adaptive(minimum: 170))
+    ]
     
     var body: some View {
         ZStack {
@@ -47,9 +45,9 @@ struct LibraryView: View {
                             Spacer()
                         }
                         .padding()
-                        ForEach(song1.song) { canzone in
-                            HStack {
-                                Spacer()
+                        ForEach(songsViewModel.song) { canzone in
+                            //HStack {
+                                //Spacer()
                                 VStack (alignment: .leading){
                                     Image(canzone.image)
                                         .resizable()
@@ -61,20 +59,20 @@ struct LibraryView: View {
                                         .opacity(0.5)
                                     Spacer()
                                 }
-                                Spacer()
-                                VStack (alignment: .leading){
-                                    Image(canzone.image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width:160)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    Text(canzone.title)
-                                    Text(canzone.artist)
-                                        .opacity(0.5)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
+                                //Spacer()
+//                                VStack (alignment: .leading){
+//                                    Image(canzone.image)
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width:160)
+//                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                                    Text(canzone.title)
+//                                    Text(canzone.artist)
+//                                        .opacity(0.5)
+//                                    Spacer()
+//                                }
+                                //Spacer()
+                         //   }
                         }
                     }
                     .navigationTitle("Library")
@@ -86,12 +84,12 @@ struct LibraryView: View {
                     }
                 }
                 Button(action: {self.showModal = true}){
-                    PiPlayerView(song: Songs(title: "Indie Happy Rock", image: "Upbeat Indie Happy Rock", artist: "Infraction"))
+                    PiPlayerView(song: songsViewModel.currentSong)
                 }.tint(.black)
                 .fullScreenCover(isPresented: $showModal, onDismiss: {
                     self.showModal = false
                 }){
-                    NewPlayerView(song: Songs(title: "Indie Happy Rock", image: "Upbeat Indie Happy Rock", artist: "Infraction"), expandSheet: .constant(true), animation: Namespace().wrappedValue).presentationDetents([.height(.infinity)])
+                    NewPlayerView(song: songsViewModel.currentSong , expandSheet: .constant(true), animation: Namespace().wrappedValue).presentationDetents([.height(.infinity)])
                 }
             }.accentColor(.red)
         }
@@ -100,4 +98,5 @@ struct LibraryView: View {
 
 #Preview {
     TabBarView()
+        .environment(SongsViewModel())
 }

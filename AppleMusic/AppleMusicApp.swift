@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct AppleMusicApp: App {
+    
+    var songsViewModel = SongsViewModel()
+    
     var body: some Scene {
         WindowGroup {
             TabBarView()
-        }
+        }.environment(songsViewModel)
     }
 }

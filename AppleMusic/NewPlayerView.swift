@@ -23,7 +23,7 @@ struct NewPlayerView: View {
     @State private var currentSong : String?
     private let range: ClosedRange<Double> = 0...100
     @Binding var expandSheet : Bool
-    let audioFileName = "Time Of Our Lives"
+    @State var audioFileName: String = ""
     var animation : Namespace.ID
     @Environment(\.dismiss) var dismiss
     
@@ -202,7 +202,10 @@ struct NewPlayerView: View {
                 .frame(height: size.height / 2.5, alignment: .bottom)
             }
         }
-        .onAppear(perform: setAudio)
+        .onAppear{
+            audioFileName = song.title
+            setAudio()
+        }
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()){_ in
             updateProgress()
         }

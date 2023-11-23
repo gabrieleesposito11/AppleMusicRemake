@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E00324262B0CE87900BC9E96 /* Funk Fun Happy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324202B0CE87900BC9E96 /* Funk Fun Happy.mp3 */; };
 		E00324272B0CE87900BC9E96 /* Funk Fashion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324212B0CE87900BC9E96 /* Funk Fashion.mp3 */; };
-		E00324282B0CE87900BC9E96 /* Upbeat Indie Happy Rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324222B0CE87900BC9E96 /* Upbeat Indie Happy Rock.mp3 */; };
+		E00324282B0CE87900BC9E96 /* Indie Happy Rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324222B0CE87900BC9E96 /* Indie Happy Rock.mp3 */; };
 		E00324292B0CE87900BC9E96 /* Hip-Hop Energy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324232B0CE87900BC9E96 /* Hip-Hop Energy.mp3 */; };
 		E003242A2B0CE87900BC9E96 /* Time Of Our Lives.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324242B0CE87900BC9E96 /* Time Of Our Lives.mp3 */; };
 		E003242B2B0CE87900BC9E96 /* Fashion Saxophone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E00324252B0CE87900BC9E96 /* Fashion Saxophone.mp3 */; };
@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		E00324202B0CE87900BC9E96 /* Funk Fun Happy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Funk Fun Happy.mp3"; path = "../../Assets/Music/Funk Fun Happy.mp3"; sourceTree = "<group>"; };
 		E00324212B0CE87900BC9E96 /* Funk Fashion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Funk Fashion.mp3"; path = "../../Assets/Music/Funk Fashion.mp3"; sourceTree = "<group>"; };
-		E00324222B0CE87900BC9E96 /* Upbeat Indie Happy Rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Upbeat Indie Happy Rock.mp3"; path = "../../Assets/Music/Upbeat Indie Happy Rock.mp3"; sourceTree = "<group>"; };
+		E00324222B0CE87900BC9E96 /* Indie Happy Rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Indie Happy Rock.mp3"; path = "../../Assets/Music/Indie Happy Rock.mp3"; sourceTree = "<group>"; };
 		E00324232B0CE87900BC9E96 /* Hip-Hop Energy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Hip-Hop Energy.mp3"; path = "../../Assets/Music/Hip-Hop Energy.mp3"; sourceTree = "<group>"; };
 		E00324242B0CE87900BC9E96 /* Time Of Our Lives.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Time Of Our Lives.mp3"; path = "../../Assets/Music/Time Of Our Lives.mp3"; sourceTree = "<group>"; };
 		E00324252B0CE87900BC9E96 /* Fashion Saxophone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Fashion Saxophone.mp3"; path = "../../Assets/Music/Fashion Saxophone.mp3"; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				E00324202B0CE87900BC9E96 /* Funk Fun Happy.mp3 */,
 				E00324232B0CE87900BC9E96 /* Hip-Hop Energy.mp3 */,
 				E00324242B0CE87900BC9E96 /* Time Of Our Lives.mp3 */,
-				E00324222B0CE87900BC9E96 /* Upbeat Indie Happy Rock.mp3 */,
+				E00324222B0CE87900BC9E96 /* Indie Happy Rock.mp3 */,
 				E01F5ACA2B03800E00C98332 /* AppleMusicApp.swift */,
 				E01F5ADC2B03BFBD00C98332 /* Categories.swift */,
 				E01F5AE02B03C0DF00C98332 /* CategoriesViewModel.swift */,
@@ -177,7 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E003242B2B0CE87900BC9E96 /* Fashion Saxophone.mp3 in Resources */,
-				E00324282B0CE87900BC9E96 /* Upbeat Indie Happy Rock.mp3 in Resources */,
+				E00324282B0CE87900BC9E96 /* Indie Happy Rock.mp3 in Resources */,
 				E00324292B0CE87900BC9E96 /* Hip-Hop Energy.mp3 in Resources */,
 				E01F5AD22B03800E00C98332 /* Preview Assets.xcassets in Resources */,
 				E00324262B0CE87900BC9E96 /* Funk Fun Happy.mp3 in Resources */,

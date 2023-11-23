@@ -10,17 +10,18 @@ import SwiftUI
 struct PiPlayerView: View {
     
     var song : Songs
+    @Environment (SongsViewModel.self) var songsViewModel
     
     var body: some View {
             VStack {
                 HStack {
-                    Image(song.image)
+                    Image(songsViewModel.currentSong.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 44)
                         .cornerRadius(2)
                         .offset(x: -70, y: 2)
-                    Text(song.title)
+                    Text(songsViewModel.currentSong.title)
                         .multilineTextAlignment(.leading)
                         .frame(minWidth: 10,maxWidth: 80)
                         .offset(x: -65, y: -2)
@@ -52,5 +53,6 @@ struct PiPlayerView: View {
 
 
     #Preview {
-        PiPlayerView(song: Songs(title: "Indie Happy Rock", image: "Upbeat Indie Happy Rock", artist: "Infraction"))
+        PiPlayerView(song: datas.currentSong)
+            .environment(SongsViewModel())
     }

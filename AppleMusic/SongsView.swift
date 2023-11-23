@@ -10,8 +10,10 @@ import SwiftUI
 struct SongsView: View {
     
     var song = SongsViewModel()
+    @Environment(SongsViewModel.self) var songViewModel
     @State private var searchText = ""
-    @State private var currentSong : String?
+    @State var showModal = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack{
@@ -19,40 +21,50 @@ struct SongsView: View {
                 HStack {
                     Spacer()
                     HStack{
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 160, height: 55)
-                                .foregroundColor(.gray)
-                                .opacity(0.2)
-                            HStack{
-                                Image(systemName: "play.fill")
-                                    .foregroundColor(.red)
-                                    .bold()
-                                Text("Play")
-                                    .foregroundStyle(.red)
-                                    .bold()
+                        Button{
+                            
+                        }label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 160, height: 55)
+                                    .foregroundColor(.gray)
+                                    .opacity(0.2)
+                                HStack{
+                                    Image(systemName: "play.fill")
+                                        .foregroundColor(.red)
+                                        .bold()
+                                    Text("Play")
+                                        .foregroundStyle(.red)
+                                        .bold()
+                                }
                             }
                         }
                         Spacer()
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 160, height: 55)
-                                .foregroundColor(.gray)
-                                .opacity(0.2)
-                            HStack{
-                                Image(systemName: "shuffle")
-                                    .foregroundColor(.red)
-                                    .bold()
-                                Text("Shuffle")
-                                    .foregroundColor(.red)
-                                    .bold()
+                        Button{
+                            
+                        }label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 160, height: 55)
+                                    .foregroundColor(.gray)
+                                    .opacity(0.2)
+                                HStack{
+                                    Image(systemName: "shuffle")
+                                        .foregroundColor(.red)
+                                        .bold()
+                                    Text("Shuffle")
+                                        .foregroundColor(.red)
+                                        .bold()
+                                }
                             }
                         }
                     }
                     Spacer()
                 }
-                ForEach(song.song){ canzone in
-                    NavigationLink(destination: NewPlayerView(song: canzone, expandSheet: .constant(true), animation: Namespace().wrappedValue)) {
+                ForEach(songViewModel.song){ canzone in
+                    Button(action: {
+                        songViewModel.currentSong = canzone
+                    }){
                         HStack {
                             Image(canzone.image)
                                 .resizable()
@@ -70,6 +82,14 @@ struct SongsView: View {
             }
             .navigationTitle("Songs")
             .listStyle(.plain)
+            Button(action: {self.showModal = true}){
+                PiPlayerView(song: songViewModel.currentSong)
+            }.tint(.black)
+            .fullScreenCover(isPresented: $showModal, onDismiss: {
+                self.showModal = false
+            }){
+                NewPlayerView(song: songViewModel.currentSong, expandSheet: .constant(true), animation: Namespace().wrappedValue).presentationDetents([.height(.infinity)])
+            }
         }
         .searchable(text: $searchText, prompt: "Find in Songs")
     }
@@ -77,4 +97,5 @@ struct SongsView: View {
 
 #Preview {
     SongsView()
+        .environment(SongsViewModel())
 }
